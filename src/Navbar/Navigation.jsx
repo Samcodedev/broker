@@ -31,7 +31,7 @@ const Navigation = () => {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/">Dashboard</Nav.Link>
                   <Nav.Link href="/">Market</Nav.Link>
-                  <Nav.Link href="/">Market News</Nav.Link>
+                  <Nav.Link href="/">Forex</Nav.Link>
                   <Nav.Link href="/">Crypto</Nav.Link>
                   <Nav.Link href="/">Technical Analysis</Nav.Link>
                   <Nav.Link href="/">UI Kit</Nav.Link>

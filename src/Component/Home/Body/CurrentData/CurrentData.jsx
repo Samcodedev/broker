@@ -6,23 +6,28 @@ const CurrentData = () => {
     const data =[
       {
         price: 1.2694,
-        type: "open"
+        type: "high",
+        color: "green"
       },
       {
         price: 1.4863,
-        type: "close"
+        type: "low",
+        color: "red"
       },
       {
         price: 1.8532,
-        type: "high"
+        type: "open",
+        color: "gray"
       },
       {
         price: 1.1753,
-        type: "low"
+        type: "close",
+        color: "gray"
       },
       {
         price: 1.0865,
-        type: "volume"
+        type: "volume",
+        color: "gray"
       }
     ]
   
@@ -31,6 +36,7 @@ const CurrentData = () => {
         <Curent 
           price={item.price}
           type={item.type}
+          color={item.color}
         />
       )
     })
