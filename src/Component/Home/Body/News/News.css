@@ -1,0 +1,13 @@
+.news{
+    padding: 20px 0;
+}
+.news p{
+    max-width: 500px;
+}
+.news button{
+    padding: 5px 12px;
+    color: #fff;
+    background-color: rgb(4, 115, 243);
+    border: 1.5px solid rgb(4, 115, 243);
+    border-radius: 3px;
+}

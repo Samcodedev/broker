@@ -1,0 +1,32 @@
+.current-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1.5px solid rgb(230, 227, 227);
+}
+.current-data .price{
+    display: flex;
+
+}
+.current-data button{
+    background-color: rgba(109, 255, 109, 0.596);
+    color: green;
+    border: 1.5px solid rgba(109, 255, 109, 0.596);
+    padding: 5px 12px;
+    border-radius: 3px;
+}
+
+
+@media screen and (max-width: 645px) {
+    .current-data .price{
+        flex-wrap: wrap;
+    }
+    .current-data .price h3{
+        font-size: 17px !important;
+    }
+    .current-data .price p{
+        font-size: 12px !important;
+    }
+}

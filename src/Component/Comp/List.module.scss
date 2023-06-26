@@ -1,0 +1,24 @@
+@use '../Component.module.scss' as style;
+
+.list_group{
+    display: flex;
+    align-items: center;
+    span{
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        h4{
+            padding: 0 style.$mini-gap;
+        }
+
+        div{
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+        }
+    }
+    span:hover > .line{
+        background-color: style.$deepColor;
+    }
+}

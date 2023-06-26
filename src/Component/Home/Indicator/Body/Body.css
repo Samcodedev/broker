@@ -1,0 +1,7 @@
+.body-table, table{
+    width: 100%;
+    background-color: #fff;
+}
+.body-table table tbody tr td{
+    padding-left: 10px;
+}

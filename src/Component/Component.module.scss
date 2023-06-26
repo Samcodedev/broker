@@ -1,0 +1,27 @@
+
+
+$primaryColor: rgb(230, 227, 227);
+$secondaryColor: rgb(141, 141, 141);
+$deepColor: rgb(128, 128, 128);
+$faintColor: rgb(168, 168, 168);
+
+
+$border: 1.5px solid $secondaryColor;
+$mini-padding: 10px 10px;
+$mini-gap: 10px;
+
+h4{
+    font-size: 1rem !important;
+    color: $deepColor !important;
+    font-weight: 700 !important;
+}
+
+h3{
+    font-size: 1.5rem !important;
+    color: $deepColor !important;
+    font-weight: 700 !important;
+}
+
+p{
+    color: $faintColor !important;
+}

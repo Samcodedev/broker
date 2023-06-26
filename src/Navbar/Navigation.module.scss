@@ -1,0 +1,12 @@
+@use '../Component/Component.module.scss' as style;
+
+.nav{
+    border: none;
+}
+.nav:focus{
+    border: none;
+    box-shadow: 0 0 0 transparent;
+}
+.nav_bar{
+    background-color: style.$primaryColor;
+}
