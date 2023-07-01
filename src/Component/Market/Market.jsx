@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Navigation from './Navigation/Navigation'
 import News from './News/News'
 import './Market.css'
-import Fetch from '../Fetch'
+// import Fetch from '../Fetch'
 
 const Market = () => {
   const [newsData, newsDataFunc] = useState()

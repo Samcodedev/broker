@@ -6,7 +6,7 @@ import './Navigation.css'
 const Navigation = (props) => {
 
   const [route, routefunc] = useState()
-  const [click, clickFunc] = useState()
+  // const [click, clickFunc] = useState()
 
   // news navigation datas and fetching extensions
     const data = [
