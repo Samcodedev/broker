@@ -8,7 +8,7 @@
 }
 .current-data .price{
     display: flex;
-
+    gap: 10px;
 }
 .current-data button{
     background-color: rgba(109, 255, 109, 0.596);
@@ -19,7 +19,7 @@
 }
 
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 1126px) {
     .current-data .price{
         flex-wrap: wrap;
     }
@@ -28,5 +28,26 @@
     }
     .current-data .price p{
         font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 987px) {
+    .current-data{
+        gap: 0;
+    }
+    .current-data button{
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .current-data .price{
+        gap: 0 10px;
+    }
+    .current-data .price .current{
+        margin-bottom: 0;
+    }
+    .current-data button{
+        margin-top: 10px;
     }
 }

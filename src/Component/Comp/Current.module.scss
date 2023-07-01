@@ -2,8 +2,25 @@
 
 .current{
     padding: style.$mini-padding;
-    margin-top: style.$mini-gap;
+    margin: style.$mini-gap 0px;
+    border: 1.5px solid rgb(230, 227, 227);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    flex-grow: 1;
+    max-width: 200px;
     h3{
         margin-block-end: 0;
+    }
+    p{
+        margin-block-end: 0;
+    }
+}
+
+
+@media screen and (max-width: 530px) {
+    .current{
+        margin-bottom: 0;
     }
 }

@@ -1,7 +1,13 @@
 .table{
     height: 350px;
     overflow-y: auto;
+    overflow-x: auto;
     background-color: rgb(230, 227, 227);
+    scroll-behavior: smooth;
+}
+.table table{
+    width: 600px !important;
+    min-width: 100% !important;
 }
 .table::-webkit-scrollbar{
     display: none;

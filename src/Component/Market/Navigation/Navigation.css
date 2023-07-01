@@ -5,6 +5,3 @@
     overflow-x: auto;
     scroll-behavior: smooth;
 }
-.navigation::-webkit-scrollbar{
-    display: none;
-}

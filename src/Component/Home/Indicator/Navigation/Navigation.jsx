@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import List from '../../../Comp/List'
+import DataBoard from '../../../DataBoard'
 
-const Navigation = () => {
+const Navigation = (props) => {
     const data = [
-        "Technical Indicator",
-        "Moving Average"
+        "Stock",
+        "Forex",
+        "Crypto"
     ]
+
+
+    function route(data){
+      console.log(data)
+      props.data(data)
+    }
 
     const nav = data.map((item) =>{
         return(
             <List 
                 currency={item}
+                func={route}
             />
         )
     })

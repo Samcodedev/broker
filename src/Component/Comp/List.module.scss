@@ -3,6 +3,7 @@
 .list_group{
     display: flex;
     align-items: center;
+    min-width: fit-content;
     span{
         background-color: transparent;
         display: flex;
@@ -18,7 +19,7 @@
             background-color: transparent;
         }
     }
-    span:hover > .line{
+    span:is(:focus) #line{
         background-color: style.$deepColor;
     }
 }

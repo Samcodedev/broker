@@ -30,22 +30,20 @@ const Navigation = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/">Dashboard</Nav.Link>
-                  <Nav.Link href="/">Market</Nav.Link>
-                  <Nav.Link href="/">Forex</Nav.Link>
+                  <Nav.Link href="/market">Market</Nav.Link>
+                  <Nav.Link href="/forex">Forex</Nav.Link>
                   <Nav.Link href="/">Crypto</Nav.Link>
-                  <Nav.Link href="/">Technical Analysis</Nav.Link>
-                  <Nav.Link href="/">UI Kit</Nav.Link>
+                  <Nav.Link href="/chart">Technical Analysis</Nav.Link>
                   <NavDropdown
                     title="Setting"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      Another action
+                      Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
-                      Something else here
+                      Contact Us
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>

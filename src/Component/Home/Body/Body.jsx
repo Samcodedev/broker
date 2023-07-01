@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Body.css'
 import Table from './Table/Table'
 import News from './News/News'
@@ -7,12 +7,26 @@ import CurrentData from './CurrentData/CurrentData'
 
 const Body = () => {
 
+  const [data, dataFunc] = useState()
+
+  function currentData(data){
+    dataFunc(data)
+  }
+
+  // console.log("body", data)
+
   return (
     <div className='body'>
-      <Navigation />
-      <CurrentData />
+      <Navigation 
+        data={currentData}
+      />
+      <CurrentData 
+        data={data}
+      />
       <News />
-      <Table />
+      <Table 
+        data={data}
+      />
     </div>
   )
 }

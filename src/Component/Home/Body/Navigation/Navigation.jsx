@@ -1,39 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import List from '../../../Comp/List'
 import './Navigation.css'
+import FetchCurrency from '../../../FetchCurrency'
 
-const Navigation = () => {
+const Navigation = (props) => {
+
+  const [route, routefunc] = useState()
   
     const data = [
       {
-        currency: "GBP/USD"
+        list: "GBP/USD"
       },
       {
-        currency: "EUR/USD"
+        list: "EUR/USD"
       },
       {
-        currency: "GBP/JPY"
+        list: "GBP/JPY"
       },
       {
-        currency: "USD/CAD"
+        list: "USD/CAD"
       },
       {
-        currency: "XAU/USD"
+        list: "XAU/USD"
       },
       {
-        currency: "AUD/CAD"
+        list: "AUD/CAD"
       }
     ]
+
+    function get_data(data){
+      routefunc(data)
+    }
+
+    function fetching(data){
+      props.data(data)
+      // console.log("navigation", data)
+    }
     
     const navigation = data.map((item) =>{
       return(
         <List 
-          currency={item.currency}
+          currency={item.list}
+          route={item.list}
+          func={get_data}
         />
       )
     })
   return (
     <div className='navigation'>
+      <FetchCurrency 
+        CurrencyPair={route}
+        currentData={fetching}
+      />
       {navigation}
     </div>
   )

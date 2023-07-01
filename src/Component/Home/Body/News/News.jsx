@@ -1,12 +1,13 @@
 import React from 'react'
 import './News.css'
+import { Link } from 'react-router-dom'
 
 const News = () => {
   return (
     <div className='news'>
-      <h4>CPI news</h4>
-      <p>there will be a massive sell in EUR due to the high cost of fuel rate which will make it loose it's value and may later gain value</p>
-      <button>Check More</button>
+      <h4>News</h4>
+      <p>Get latest, popular and trending news on Forex, Stock, Crypto and economical news going on in the world.</p>
+      <Link to="/market"><button>Check More</button></Link>
     </div>
   )
 }

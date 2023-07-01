@@ -4,9 +4,14 @@ import Body from './Body/Body'
 import './Indicator.css'
 
 const Indicator = () => {
+  function route(data){
+    console.log(data)
+  }
   return (
     <div className='indicator'>
-      <Navigation />
+      <Navigation 
+        data={route}
+      />
       <Body />
     </div>
   )
