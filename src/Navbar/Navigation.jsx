@@ -32,7 +32,7 @@ const Navigation = () => {
                   <Nav.Link href="/">Dashboard</Nav.Link>
                   <Nav.Link href="/market">Market</Nav.Link>
                   <Nav.Link href="/forex">Forex</Nav.Link>
-                  <Nav.Link href="/">Crypto</Nav.Link>
+                  <Nav.Link href="/crypto">Crypto</Nav.Link>
                   <Nav.Link href="/chart">Technical Analysis</Nav.Link>
                   <NavDropdown
                     title="Setting"

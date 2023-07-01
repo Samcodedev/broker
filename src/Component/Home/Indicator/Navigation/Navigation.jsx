@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import List from '../../../Comp/List'
-import DataBoard from '../../../DataBoard'
+// import DataBoard from '../../../DataBoard'
 
 const Navigation = (props) => {
     const data = [

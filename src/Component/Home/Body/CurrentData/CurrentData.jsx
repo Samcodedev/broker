@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import Curent from '../../../Comp/Curent'
+import React from 'react'
+// import Curent from '../../../Comp/Curent'
 import './CurrentData.css'
-import Fetch from '../../../Fetch'
+// import Fetch from '../../../Fetch'
 
 
 const CurrentData = (props) => {
-  const [price, priceFunc] = useState()
+  // const [price, priceFunc] = useState()
 
   // setTimeout(() => {
-    const currentDatas = [props.data]
-    let arr = Object.values(currentDatas)
+    // const currentDatas = [props.data]
+    // let arr = Object.values(currentDatas)
+
+
 
     // priceFunc(
     //   arr.map((item) =>{
@@ -31,7 +33,7 @@ const CurrentData = (props) => {
   return (
     <div className='current-data'>
       <div className="price">
-        {price}
+        {/* {price} */}
       </div>
       <button>Strong Buy</button>
     </div>

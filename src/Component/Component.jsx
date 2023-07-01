@@ -5,6 +5,7 @@ import Navigation from '../Navbar/Navigation'
 import Market from './Market/Market'
 import Forex from './Forex/Forex'
 import Chart from './Chart/Chart'
+import Crypto from './Crypto/Crypto'
 
 const Component = () => {
   return (
@@ -14,6 +15,7 @@ const Component = () => {
             <Route path="/" element={<Home />} />
             <Route path="/market" element={<Market />} />
             <Route path="/forex" element={<Forex />} />
+            <Route path="/crypto" element={<Crypto />} />
             <Route path="/chart" element={<Chart />} />
         </Routes>
     </Router>

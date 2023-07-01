@@ -3,7 +3,7 @@ import style from './List.module.scss'
 
 const List = (props) => {
 
-  let route = props.route
+  // let route = props.route
 
   // selecting and sending the selected route to the parent component
   function select(){

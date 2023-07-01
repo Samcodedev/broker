@@ -1,0 +1,33 @@
+.main-table{
+    height: 450px;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: rgb(230, 227, 227);
+    scroll-behavior: smooth;
+}
+.main-table::-webkit-scrollbar{
+    display: none;
+}
+.main-table table{
+    min-width: 1130px !important;
+    width: 100%;
+}
+.main-table table tbody tr td button{
+    background-color: rgb(4, 115, 243);
+    border: 1.5px solid rgb(4, 115, 243);
+    border-radius: 5px;
+    color: #fff;
+    padding: 1px 10px;
+}
+.main-table table tbody tr td:first-child{
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+}
+.main-table table thead tr th:first-child{
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    z-index: 4;
+}

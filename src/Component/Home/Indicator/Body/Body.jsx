@@ -97,7 +97,7 @@ const Body = () => {
 
   useEffect(()=>{
     indicator()
-  },[])
+  })
 
   return (
     <div className='body-table'>
