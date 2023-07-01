@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Fetch = (props) => {
 
     let news = props.news
-    let CurrencyPair = props.CurrencyPair
+    // let CurrencyPair = props.CurrencyPair
 
     console.log("from fetch", news)
 
     let apiKey = 'd064065a6amshb059169a3069fb0p15443bjsnbf019d4664e5';
 
-    const [AllForexData, funcAllForexData] = useState()
+    // const [AllForexData, funcAllForexData] = useState()
     
     const [marketNews, funcMarketNews] = useState()
     props.Fdata(marketNews)
 
     // fetch all available forex data
-    async function fetchAllForexData(){
-        const URL = `https://twelve-data1.p.rapidapi.com/market_movers/forex`;
-        const options = {
-          method: 'GET',
-          headers: {
-            'X-RapidAPI-Key': `${apiKey}`,
-            'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
-          }
-        };  
-        try {
-          const response = await fetch(URL, options);
-          const result = await response.json();
-          console.log(result);
-          funcAllForexData(result.values)
-        } catch (error) {
-          console.error(error);
-        }
-    }
+    // async function fetchAllForexData(){
+    //     const URL = `https://twelve-data1.p.rapidapi.com/market_movers/forex`;
+    //     const options = {
+    //       method: 'GET',
+    //       headers: {
+    //         'X-RapidAPI-Key': `${apiKey}`,
+    //         'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
+    //       }
+    //     };  
+    //     try {
+    //       const response = await fetch(URL, options);
+    //       const result = await response.json();
+    //       console.log(result);
+    //       funcAllForexData(result.values)
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    // }
 
 
     
@@ -63,11 +63,11 @@ const Fetch = (props) => {
         if(news){
           MarketNews()
         }
-        else if(news = undefined){
+        else if(news === undefined){
           MarketNews()
         }
         MarketNews()
-    }, [news])
+    })
 }
 
 export default Fetch
