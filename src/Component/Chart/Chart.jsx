@@ -59,7 +59,7 @@ const Chart = () => {
         }
       }
     },
-    []
+    [location.state, getPair]
   );
 
   return (
