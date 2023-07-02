@@ -7,12 +7,14 @@
 .body-table::-webkit-scrollbar{
     display: none;
 }
+.body-table table tbody{
+    width: 100%;
+}
 .body-table table tbody tr td:nth-child(2){
     padding-left: 10px;
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    /* justify-content: space-between; */
 }
 
 .body-table table tbody tr td button{
@@ -22,8 +24,16 @@
     /* border: 1.5px solid rgb(250, 176, 176, 0.842); */
     border-radius: 3px;
 }
+.body-table table thead tr th:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+}
 .body-table table thead tr th select{
     border: 1.5px solid rgba(179, 179, 179, 0.842);
     border-radius: 3px;
     color: rgba(179, 179, 179);
+    cursor: pointer;
+}
+.body-table table thead tr th select:focus{
+    outline: none;
 }

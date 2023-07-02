@@ -7,7 +7,7 @@ const Body = () => {
   const [time, timeFunc] = useState(null)
 
   async function indicator(){
-    const url = 'https://global-stock-market-api-data.p.rapidapi.com/most_active_countrywise_by_technical/usa';
+    const url = 'https://global-stock-market-api-data.p.rapidapi.com/stocks_countrywise_by_technical/usa';
     const options = {
       method: 'GET',
       headers: {
@@ -23,28 +23,33 @@ const Body = () => {
       dataFunc(
         result.map((item) =>{
           // return(
-            let setTime;
-            if(time === "hourly"){
-              setTime = item.hourly
-            }
-            else if(time === "weekly"){
-              setTime = item.weekly
-            }
-            else if(time === "monthly"){
-              setTime = item.monthly
-            }
-            else if(time === "yearly"){
-              setTime = item.yearly
-            }
-            else if(time === null){
-              setTime = item.hourly
-            }
+            // if(time === "hourly"){
+            //   setTimeFunc(item.hourly)
+            // }
+            // else if(time === "weekly"){
+            //   setTimeFunc(item.weekly)
+            // }
+            // else if(time === "monthly"){
+            //   setTimeFunc(item.monthly)
+            // }
+            // else if(time === "yearly"){
+            //   setTimeFunc(item.yearly)
+            // }
+            // else if(time === null){
+            //   setTimeFunc(item.hourly)
+            // }
+            // else{
+            //   setTimeFunc("not set")
+            // }
           if(item.hourly === 'Strong Buy'){
             // BuyColorFunct("green")
             return(
               <tr>
                 <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)'}}>{setTime}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly' || null? 'block' : "none"}}>{item.hourly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
               </tr>
             )
           }
@@ -52,7 +57,10 @@ const Body = () => {
             return(
               <tr>
                 <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)'}}>{setTime}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
               </tr>
             )
           }
@@ -60,7 +68,10 @@ const Body = () => {
             return(
               <tr>
                 <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)'}}>{setTime}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
+                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
               </tr>
             )
           }
@@ -68,7 +79,10 @@ const Body = () => {
             return(
               <tr>
                 <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)'}}>{setTime}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
+                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
               </tr>
             )
           }
@@ -76,7 +90,10 @@ const Body = () => {
             return(
               <tr>
                 <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)'}}>{setTime}</button></td>
+                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
+                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
+                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
+                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
               </tr>
             )
           }
@@ -95,12 +112,13 @@ const Body = () => {
   }
   console.log(time)
 
-  useEffect(()=>{
-    indicator()
-  })
+  // useEffect(()=>{
+  //   indicator()
+  // }, [])
 
   return (
     <div className='body-table'>
+      <button onClick={indicator}>click</button>
       <table>
         <thead>
           <tr>

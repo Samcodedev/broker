@@ -1,11 +1,28 @@
-import React from 'react'
-// import Curent from '../../../Comp/Curent'
+import React, {useState} from 'react'
+import Curent from '../../../Comp/Curent'
 import './CurrentData.css'
 // import Fetch from '../../../Fetch'
 
 
 const CurrentData = (props) => {
-  // const [price, priceFunc] = useState()
+  const [price, priceFunc] = useState()
+  console.log(props.data)
+  // let data = props.data
+
+  // setTimeout(() => {
+  // let data = props.data
+  //   priceFunc(
+  //     data.map((item) =>{
+  //       console.log(item)
+  //       // return(
+  //       //   <Curent 
+  //       //     price={item}
+  //       //     type="open"
+  //       //   />
+  //       // )
+  //     })
+  //   )
+  // }, 500);
 
   // setTimeout(() => {
     // const currentDatas = [props.data]
@@ -34,6 +51,9 @@ const CurrentData = (props) => {
     <div className='current-data'>
       <div className="price">
         {/* {price} */}
+        {/* <Curent 
+          price={data[1]}
+        /> */}
       </div>
       <button>Strong Buy</button>
     </div>

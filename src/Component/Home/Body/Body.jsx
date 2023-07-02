@@ -11,6 +11,7 @@ const Body = () => {
 
   function currentData(data){
     dataFunc(data)
+    // console.log("tee", data)
   }
 
   // console.log("body", data)
@@ -25,7 +26,7 @@ const Body = () => {
       />
       <News />
       <Table 
-        data={data}
+        // data={data}
       />
     </div>
   )

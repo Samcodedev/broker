@@ -12,8 +12,6 @@ const Market = () => {
     newsDataFunc(data)
   }
 
-  console.log("testing news", newsData)
-
   return (
     <div className='market'>
       <Navigation 

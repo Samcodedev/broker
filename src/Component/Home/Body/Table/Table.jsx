@@ -1,22 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Table.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import FetchCurrency from '../../../FetchCurrency';
-// import CurrentData from '../CurrentData/CurrentData';
 
-const Table = (props) => {
-    const data = [
-        "Currency","T-Frame", "Date/Time", "Open", "Close", "High", "Low"
-    ]
+const Table = () => {
 
-    const th = data.map((item) =>{
-        return(
-            <th>{item}</th>
-        )
-    })
-
-    const [tableData, tableDataFunc] = useState()
-
+    const [td, tdFunc] = useState(null)
+    // currency pairs to be fetched
     let pairs = {
         pair1: "USD",
         pair2: "GBP",
@@ -24,16 +13,19 @@ const Table = (props) => {
         pair4: "JPY",
         pair5: "AUD",
         pair6: "CAD",
-  // AUD
-        pair7: "USOIL",
-        pair8: "CHF",
-        pair9: "XAU",
-        pair10: "TRY",
-        pair11: "XTZ",
-        pair12: "NZD",
-        pair13: "NGN",
       }
+    
+    // table headers
+    const data = [
+        "Currency","T-Frame", "Date/Time", "Open", "Close", "High", "Low"
+    ]
+    const th = data.map((item) =>{
+        return(
+            <th>{item}</th>
+        )
+    })
 
+    // fetching currency data
     async function BoardData(){
         const url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${pairs.pair2}/${pairs.pair1}%2C%20${pairs.pair3}/${pairs.pair4}%2C%20${pairs.pair1}/${pairs.pair4}%2C%20${pairs.pair5}/${pairs.pair4}%2C%20${pairs.pair6}/${pairs.pair4}%2C%20${pairs.pair3}/${pairs.pair1}%2C%20${pairs.pair2}/${pairs.pair5}%2C%20${pairs.pair5}/${pairs.pair4}&interval=30min&outputsize=14&format=json`;
         const options = {
@@ -43,13 +35,12 @@ const Table = (props) => {
                 'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
             }
         };
-
         try {
             const response = await fetch(url, options);
             const result = await response.json();
             let val = Object.values(result)
             
-            tableDataFunc(
+            tdFunc(
                 val.map((item) =>{
                     console.log(item)
                     let data = item.values[0]
@@ -67,17 +58,22 @@ const Table = (props) => {
                     )
                 })
             )
-
-            // console.log(result);
         } catch (error) {
             console.error(error);
         }
     }
 
+    useEffect(()=>{
+        if(td === null){
+            BoardData()
+        }else{
+            BoardData()
+        }
+        BoardData()
+    },[pairs])
 
   return (
     <div className='table'>
-        <button onClick={BoardData}>click</button>
       <table>
         <thead>
             <tr>
@@ -85,9 +81,7 @@ const Table = (props) => {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                {tableData}
-            </tr>
+            {td}
         </tbody>
       </table>
     </div>

@@ -16,7 +16,7 @@ const Table = (props) => {
 
 
 
-    const [tableData, tableDataFunc] = useState()
+    const [tableData, tableDataFunc] = useState(null)
     const [tableData2, tableDataFunc2] = useState()
     let time = props.time;
     let period = props.period;
@@ -36,8 +36,18 @@ const Table = (props) => {
       pair12: "NZD",
       pair13: "NGN",
     }
-    //twelve-data1.p.rapidapi.com/time_series?symbol=${pairs.pair2}/${pairs.pair1}%2C%20${pairs.pair3}/${pairs.pair4}%2C%20${pairs.pair1}/${pairs.pair4}%2C%20${pairs.pair5}/${pairs.pair4}%2C%20${pairs.pair6}/${pairs.pair4}%2C%20${pairs.pair3}/${pairs.pair1}%2C%20${pairs.pair2}/${pairs.pair5}%2C%20${pairs.pair5}/${pairs.pair4}
-    // %2C%20${pairs.pair7}%2C%20${pairs.pair1}/${pairs.pair8}%2C%20${pairs.pair3}/${pairs.pair8}%2C%20${pairs.pair5}/${pairs.pair8}%2C%20${pairs.pair6}/${pairs.pair8}%2C%20${pairs.pair2}/${pairs.pair8}%2C%20${pairs.pair9}/${pairs.pair1}%2C%20${pairs.pair9}/${pairs.pair5}%2C%20${pairs.pair9}/${pairs.pair3}%2C%20${pairs.pair9}/${pairs.pair2}%2C%20${pairs.pair10}/${pairs.pair4}%2C%20${pairs.pair11}/${pairs.pair1}%2C%20${pairs.pair12}/${pairs.pair6}%2C%20${pairs.pair1}/${pairs.pair13}&interval=1day&outputsize=30&format=json
+
+    // let pairs = {
+    //     pair1: "BTC",
+    //     pair2: "USDT",
+    //     pair3: "ETH",
+    //     pair4: "LTC",
+    //     pair5: "BCH",
+    //   // AUD
+    //     pair7: "TRX",
+    //     pair8: "XRP",
+    //     pair9: "USD"
+    //   }
     
     async function BoardData(){
         const url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${pairs.pair2}/${pairs.pair1}%2C%20${pairs.pair3}/${pairs.pair4}%2C%20${pairs.pair1}/${pairs.pair4}%2C%20${pairs.pair5}/${pairs.pair4}%2C%20${pairs.pair6}/${pairs.pair4}%2C%20${pairs.pair3}/${pairs.pair1}%2C%20${pairs.pair2}/${pairs.pair5}%2C%20${pairs.pair5}/${pairs.pair4}&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;
@@ -63,6 +73,7 @@ const Table = (props) => {
                         <tr>
                             <td>{meta.symbol}</td>
                             <td>{meta.interval}</td>
+                            <td>{period}</td>
                             <td>{data.datetime}</td>
                             <td>{data.open}</td>
                             <td>{data.close}</td>
@@ -122,15 +133,24 @@ const Table = (props) => {
     }
 
     useEffect(()=>{
-        // BoardData()
-    },[])
+        if(tableData === null){
+            BoardData()
+            BoardData2()
+        }
+        else{
+            BoardData()
+            BoardData2()
+        }
+        BoardData()
+        BoardData2()
+    },[time, period])
 
 
 
   return (
     <div className='main-table'>
-        <button onClick={BoardData}>click</button>
-        <button onClick={BoardData2}>click2</button>
+        {/* <button onClick={BoardData}>click</button>
+        <button onClick={BoardData2}>click2</button> */}
         <table>
             <thead>
                 <tr>

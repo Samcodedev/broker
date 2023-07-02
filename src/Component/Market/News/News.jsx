@@ -18,16 +18,13 @@ const News = (props) => {
     setTimeout(() => {
         
         const get = (data? data : loading).map((item) =>{
-            // for(let i = 0; i>data[0].length; i++){
-                return(
-                    <NewsCard 
-                        newsTitle={item.newsTitle}
-                        shotDesc={item.shotDesc}
-                        postedOn={item.postedOn}
-                    />
-                )
-            // }
-            
+            return(
+                <NewsCard 
+                    newsTitle={item.newsTitle}
+                    shotDesc={item.shotDesc}
+                    postedOn={item.postedOn}
+                />
+            )
         })
         newsCardFunc(get)
     }, 300);
