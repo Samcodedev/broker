@@ -36,18 +36,6 @@ const Table = (props) => {
       pair12: "NZD",
       pair13: "NGN",
     }
-
-    // let pairs = {
-    //     pair1: "BTC",
-    //     pair2: "USDT",
-    //     pair3: "ETH",
-    //     pair4: "LTC",
-    //     pair5: "BCH",
-    //   // AUD
-    //     pair7: "TRX",
-    //     pair8: "XRP",
-    //     pair9: "USD"
-    //   }
     
     async function BoardData(){
         const url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${pairs.pair2}/${pairs.pair1}%2C%20${pairs.pair3}/${pairs.pair4}%2C%20${pairs.pair1}/${pairs.pair4}%2C%20${pairs.pair5}/${pairs.pair4}%2C%20${pairs.pair6}/${pairs.pair4}%2C%20${pairs.pair3}/${pairs.pair1}%2C%20${pairs.pair2}/${pairs.pair5}%2C%20${pairs.pair5}/${pairs.pair4}&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;

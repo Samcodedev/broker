@@ -9,9 +9,9 @@ const Indicator = () => {
   }
   return (
     <div className='indicator'>
-      <Navigation 
+      {/* <Navigation 
         data={route}
-      />
+      /> */}
       <Body />
     </div>
   )

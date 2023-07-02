@@ -22,84 +22,78 @@ const Body = () => {
 
       dataFunc(
         result.map((item) =>{
-          // return(
-            // if(time === "hourly"){
-            //   setTimeFunc(item.hourly)
-            // }
-            // else if(time === "weekly"){
-            //   setTimeFunc(item.weekly)
-            // }
-            // else if(time === "monthly"){
-            //   setTimeFunc(item.monthly)
-            // }
-            // else if(time === "yearly"){
-            //   setTimeFunc(item.yearly)
-            // }
-            // else if(time === null){
-            //   setTimeFunc(item.hourly)
-            // }
-            // else{
-            //   setTimeFunc("not set")
-            // }
+
+          console.log(item)
           if(item.hourly === 'Strong Buy'){
-            // BuyColorFunct("green")
             return(
               <tr>
-                <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly' || null? 'block' : "none"}}>{item.hourly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
+                <td>{item.name}</td>
+                <td>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === null? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button>
+                </td>
               </tr>
             )
           }
           else if(item.hourly === 'Strong Sell'){
             return(
               <tr>
-                <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
+                <td>{item.name}</td>
+                <td>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === null? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button>
+                </td>
               </tr>
             )
           }
           else if(item.hourly === 'Buy'){
             return(
               <tr>
-                <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
-                <td><button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
+                <td>{item.name}</td>
+                <td>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === null? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button>
+                  <button style={{color: 'green', backgroundColor: 'rgba(109, 255, 109, 0.596)', border: '1.5px solid rgba(109, 255, 109, 0.596)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button>
+                </td>
               </tr>
             )
           }
           else if(item.hourly === 'Sell'){
             return(
               <tr>
-                <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
-                <td><button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
+                <td>{item.name}</td>
+                <td>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === null? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button>
+                  <button style={{color: 'red', backgroundColor: 'rgba(250, 176, 176, 0.842)', border: '1.5px solid rgba(250, 176, 176, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button>
+                </td>
               </tr>
             )
           }
           else{
             return(
               <tr>
-                <td>{item.name} (hrs)</td>
-                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button></td>
-                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button></td>
-                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button></td>
-                <td><button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button></td>
-              </tr>
+                <td>{item.name}</td>
+                <td>
+                  <button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === null? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'hourly'? 'block' : "none"}}>{item.hourly}</button>
+                  <button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'weekly'? 'block' : "none"}}>{item.weekly}</button>
+                  <button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'monthly'? 'block' : "none"}}>{item.monthly}</button>
+                  <button style={{color: 'gray', backgroundColor: 'rgba(179, 179, 179, 0.842)', border: '1.5px solid rgba(179, 179, 179, 0.842)', display: time === 'yearly'? 'block' : "none"}}>{item.yearly}</button>
+                </td>
+                </tr>
             )
           }
-          
-            
-          // )
         })
       )
     } catch (error) {
@@ -112,13 +106,13 @@ const Body = () => {
   }
   console.log(time)
 
-  // useEffect(()=>{
-  //   indicator()
-  // }, [])
+  useEffect(()=>{
+    indicator()
+  }, [time])
 
   return (
     <div className='body-table'>
-      <button onClick={indicator}>click</button>
+      {/* <button onClick={indicator}>click</button> */}
       <table>
         <thead>
           <tr>
@@ -134,7 +128,6 @@ const Body = () => {
             </tr>
         </thead>
         <tbody>
-            
             {data}
         </tbody>
       </table>

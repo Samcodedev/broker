@@ -74,6 +74,7 @@ const Table = () => {
 
   return (
     <div className='table'>
+        {/* <button onClick={BoardData}>click</button> */}
       <table>
         <thead>
             <tr>

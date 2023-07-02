@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import Curent from '../../../Comp/Curent'
 import './CurrentData.css'
-// import Fetch from '../../../Fetch'
 
 
 const CurrentData = (props) => {
