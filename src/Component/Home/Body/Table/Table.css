@@ -6,8 +6,8 @@
     scroll-behavior: smooth;
 }
 .table table{
-    width: 600px !important;
-    min-width: 100% !important;
+    width: 100% !important;
+    min-width: 800px !important;
 }
 .table::-webkit-scrollbar{
     display: none;

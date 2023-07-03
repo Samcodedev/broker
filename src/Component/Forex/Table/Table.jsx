@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Table = (props) => {
     const data = [
-        "Currency","T-Frame", "Date/Time", "Open", "Close", "High", "Low", "Chart"
+        "Currency","T-Frame", "Period", "Date/Time", "Open", "Close", "High", "Low", "Chart"
     ]
     const th = data.map((item) =>{
         return(
@@ -110,7 +110,7 @@ const Table = (props) => {
                             <td>{data.close}</td>
                             <td>{data.high}</td>
                             <td>{data.low}</td>
-                            <td><button>chart</button></td>
+                            <td><Link to="/chart" state={{id: meta.symbol}}><button>chart</button></Link></td>
                         </tr>
                     )
                 })
@@ -118,19 +118,17 @@ const Table = (props) => {
         } catch (error) {
             console.error(error);
         }
+        BoardData2()
     }
 
     useEffect(()=>{
         if(tableData === null){
             BoardData()
-            BoardData2()
         }
         else{
             BoardData()
-            BoardData2()
         }
         BoardData()
-        BoardData2()
     },[time, period])
 
 

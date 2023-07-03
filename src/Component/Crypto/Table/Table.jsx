@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Table = (props) => {
     const data = [
-        "Currency","T-Frame", "Date/Time", "Open", "Close", "High", "Low", "Chart"
+        "Currency","T-Frame", "Period", "Date/Time", "Open", "Close", "High", "Low", "Chart"
     ]
     const th = data.map((item) =>{
         return(
@@ -61,6 +61,7 @@ const Table = (props) => {
                         <tr>
                             <td>{meta.symbol}</td>
                             <td>{meta.interval}</td>
+                            <td>{period}</td>
                             <td>{data.datetime}</td>
                             <td>{data.open}</td>
                             <td>{data.close}</td>
