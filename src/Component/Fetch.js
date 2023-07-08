@@ -6,8 +6,6 @@ const Fetch = (props) => {
     props.Fdata(marketNews)
     let news = props.news
 
-    let apiKey = 'd064065a6amshb059169a3069fb0p15443bjsnbf019d4664e5';
-
 
     // market news
     async function MarketNews(){
@@ -15,7 +13,7 @@ const Fetch = (props) => {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': `${apiKey}`,
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
             'X-RapidAPI-Host': 'global-stock-market-api-data.p.rapidapi.com'
           }
         };
@@ -38,7 +36,7 @@ const Fetch = (props) => {
           MarketNews()
         }
         MarketNews()
-    },[])
+    },[news])
 }
 
 export default Fetch

@@ -1,48 +1,39 @@
-import React, {useEffect, useState} from 'react'
-import './Table.css'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Input from './Input'
+import Table from '../Reuse_Component/Table'
+import './DataTable.css'
 
-const Table = (props) => {
-    const data = [
-        "Currency","T-Frame", "Period", "Date/Time", "Open", "Close", "High", "Low", "Chart"
-    ]
-    const th = data.map((item) =>{
-        return(
-            <th>{item}</th>
-        )
-    })
-    console.log(props.period)
-    console.log(props.time)
+const DataTable = (props) => {
 
+  // url links
+  const url_link = props.url
+  const url_link2 = props.url2
 
+  const [period, periodFunc] = useState()
+  const [time, timeFunc] = useState()
+  //store table data value
+  let [tableData, tableDataFunc] = useState(null)
+  let [tableData2, tableDataFunc2] = useState()
+  //fetch more currency torque
+  const [more_pair, more_pairFunc] = useState(true)
 
-    const [tableData, tableDataFunc] = useState(null)
-    const [tableData2, tableDataFunc2] = useState()
-    let time = props.time;
-    let period = props.period;
-    let pairs = {
-      pair1: "USD",
-      pair2: "GBP",
-      pair3: "EUR",
-      pair4: "JPY",
-      pair5: "AUD",
-      pair6: "CAD",
-// AUD
-      pair7: "USOIL",
-      pair8: "CHF",
-      pair9: "XAU",
-      pair10: "TRY",
-      pair11: "XTZ",
-      pair12: "NZD",
-      pair13: "NGN",
-    }
+  //get period and time value
+  function calling(data, data2){
+    periodFunc(data)
+    timeFunc(data2)
+  }
+
+  const Table_header = [
+    "Currency","T-Frame", "Period", "Date/Time", "Open", "Close", "High", "Low", "Chart"
+  ]
     
     async function BoardData(){
-        const url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${pairs.pair2}/${pairs.pair1}%2C%20${pairs.pair3}/${pairs.pair4}%2C%20${pairs.pair1}/${pairs.pair4}%2C%20${pairs.pair5}/${pairs.pair4}%2C%20${pairs.pair6}/${pairs.pair4}%2C%20${pairs.pair3}/${pairs.pair1}%2C%20${pairs.pair2}/${pairs.pair5}%2C%20${pairs.pair5}/${pairs.pair4}&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;
+        const url = url_link;
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'd064065a6amshb059169a3069fb0p15443bjsnbf019d4664e5',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
             }
         };
@@ -57,7 +48,9 @@ const Table = (props) => {
                     console.log(item)
                     let data = item.values[0]
                     let meta = item.meta
-                    return(
+                    let warning = item
+                    if(data){
+                      return(
                         <tr>
                             <td>{meta.symbol}</td>
                             <td>{meta.interval}</td>
@@ -69,11 +62,16 @@ const Table = (props) => {
                             <td>{data.low}</td>
                             <td><Link to="/chart" state={{id: meta.symbol}}><button>chart</button></Link></td>
                         </tr>
-                    )
+                      )
+                    }else if(data === undefined){
+                      return(
+                        <tr>
+                          <td>{warning}</td>
+                        </tr>
+                      )
+                    }
                 })
             )
-
-            // console.log(result);
         } catch (error) {
             console.error(error);
         }
@@ -81,11 +79,11 @@ const Table = (props) => {
 
 
     async function BoardData2(){
-        const url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=%2C%20${pairs.pair1}/${pairs.pair8}%2C%20${pairs.pair3}/${pairs.pair8}%2C%20${pairs.pair5}/${pairs.pair8}%2C%20${pairs.pair2}/${pairs.pair8}%2C%20${pairs.pair9}/${pairs.pair1}%2C%20${pairs.pair9}/${pairs.pair5}%2C%20${pairs.pair9}/${pairs.pair3}%2C%20${pairs.pair9}/${pairs.pair2}&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;
+        const url = url_link2;
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'd064065a6amshb059169a3069fb0p15443bjsnbf019d4664e5',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
             }
         };
@@ -100,7 +98,9 @@ const Table = (props) => {
                     console.log(item)
                     let data = item.values[0]
                     let meta = item.meta
-                    return(
+                    let warning = item
+                    if(data){
+                      return(
                         <tr>
                             <td>{meta.symbol}</td>
                             <td>{meta.interval}</td>
@@ -112,13 +112,20 @@ const Table = (props) => {
                             <td>{data.low}</td>
                             <td><Link to="/chart" state={{id: meta.symbol}}><button>chart</button></Link></td>
                         </tr>
-                    )
+                      )
+                    }else if(data === undefined){
+                      return(
+                        <tr>
+                          <td>{warning}</td>
+                        </tr>
+                      )
+                    }
                 })
             )
         } catch (error) {
             console.error(error);
         }
-        BoardData2()
+        more_pairFunc(!more_pair)
     }
 
     useEffect(()=>{
@@ -133,23 +140,23 @@ const Table = (props) => {
 
 
 
+
+
+
+
   return (
-    <div className='main-table'>
-        {/* <button onClick={BoardData}>click</button>
-        <button onClick={BoardData2}>click2</button> */}
-        <table>
-            <thead>
-                <tr>
-                    {th}
-                </tr>
-            </thead>
-            <tbody>
-                {tableData}
-                {tableData2}
-            </tbody>
-        </table>
+    <div className='table'>
+      <Input 
+        funct ={calling}
+      />
+      <Table 
+        Table_header={Table_header}
+        Table_rows={tableData}
+        Table_rows2={tableData2}
+      />
+      <span onClick={BoardData2} style={{display: more_pair? 'block' : 'none' }}>more...</span>
     </div>
   )
 }
 
-export default Table
+export default DataTable
