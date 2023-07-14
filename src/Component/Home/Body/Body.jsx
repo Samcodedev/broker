@@ -90,13 +90,13 @@ const Body = () => {
     }
 }
 
-// useEffect(()=>{
-//   FetchCurrency()
-// },[Table_rows_data])
+useEffect(()=>{
+  FetchCurrency()
+},[Table_rows_data])
 
   return (
     <div className='body'>
-    <button onClick={FetchCurrency}>click</button>
+    {/* <button onClick={FetchCurrency}>click</button> */}
       <Navigation 
         data={currentData}
       />

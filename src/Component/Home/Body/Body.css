@@ -4,3 +4,7 @@
     padding: 10px;
     border-radius: 5px;
 }
+.body .table{
+    height: 260px !important;
+    min-height: 200px !important;
+}

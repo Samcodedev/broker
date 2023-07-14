@@ -1,6 +1,6 @@
 .table{
     min-height: 350px;
-    height: 80%;
+    height: 70vh;
     overflow-y: auto;
     overflow-x: auto;
     background-color: rgb(230, 227, 227);

@@ -147,7 +147,7 @@ const DataTable = (props) => {
 
 
   return (
-    <div className='table'>
+    <div className='tables'>
       <Input 
         funct ={calling}
       />
