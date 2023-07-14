@@ -5,23 +5,23 @@ import './CurrentData.css'
 
 const CurrentData = (props) => {
   const [price, priceFunc] = useState()
-  console.log(props.data)
   // let data = props.data
+  // console.log(props.data)
 
-  // setTimeout(() => {
-  // let data = props.data
-  //   priceFunc(
-  //     data.map((item) =>{
-  //       console.log(item)
-  //       // return(
-  //       //   <Curent 
-  //       //     price={item}
-  //       //     type="open"
-  //       //   />
-  //       // )
-  //     })
-  //   )
-  // }, 500);
+  setTimeout(() => {
+  let data = props.data
+    priceFunc(
+      data.map((item) =>{
+        // console.log(item)
+        return(
+          <Curent 
+            price={item.open}
+            type="open"
+          />
+        )
+      })
+    )
+  }, 500);
 
   // setTimeout(() => {
     // const currentDatas = [props.data]
@@ -49,7 +49,7 @@ const CurrentData = (props) => {
   return (
     <div className='current-data'>
       <div className="price">
-        {/* {price} */}
+        {price}
         {/* <Curent 
           price={data[1]}
         /> */}

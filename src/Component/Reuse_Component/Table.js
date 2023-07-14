@@ -2,12 +2,14 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Table.css'
 
-const Table = (props) => {
+const Table = ({Table_rows,Table_header,Table_rows2}) => {
 
-    const tr = props.Table_rows
-    const tr2 = props.Table_rows2
+    let tr = Table_rows
+    const tr2 = Table_rows2
 
-    const th = (props.Table_header).map((item) =>{
+    console.log(tr)
+
+    const th = (Table_header).map((item) =>{
         return(
             <th>{item}</th>
         )

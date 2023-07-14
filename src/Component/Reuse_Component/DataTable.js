@@ -10,8 +10,8 @@ const DataTable = (props) => {
   const url_link = props.url
   const url_link2 = props.url2
 
-  const [period, periodFunc] = useState()
-  const [time, timeFunc] = useState()
+  const [period, periodFunc] = useState(14)
+  const [time, timeFunc] = useState('30min')
   //store table data value
   let [tableData, tableDataFunc] = useState(null)
   let [tableData2, tableDataFunc2] = useState()
@@ -29,7 +29,7 @@ const DataTable = (props) => {
   ]
     
     async function BoardData(){
-        const url = url_link;
+        const url = url_link + `&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;
         const options = {
             method: 'GET',
             headers: {
@@ -45,10 +45,11 @@ const DataTable = (props) => {
             
             tableDataFunc(
                 val.map((item) =>{
+                    let warning = item
+                    console.log(warning)
                     console.log(item)
                     let data = item.values[0]
                     let meta = item.meta
-                    let warning = item
                     if(data){
                       return(
                         <tr>
@@ -63,7 +64,7 @@ const DataTable = (props) => {
                             <td><Link to="/chart" state={{id: meta.symbol}}><button>chart</button></Link></td>
                         </tr>
                       )
-                    }else if(data === undefined){
+                    }else{
                       return(
                         <tr>
                           <td>{warning}</td>
@@ -79,7 +80,7 @@ const DataTable = (props) => {
 
 
     async function BoardData2(){
-        const url = url_link2;
+        const url = url_link2 + `&interval=${time? time : "30min"}&outputsize=${period? period : 14}&format=json`;
         const options = {
             method: 'GET',
             headers: {
@@ -99,7 +100,8 @@ const DataTable = (props) => {
                     let data = item.values[0]
                     let meta = item.meta
                     let warning = item
-                    if(data){
+                    console.log(warning)
+                    if(data && item){
                       return(
                         <tr>
                             <td>{meta.symbol}</td>
@@ -113,10 +115,10 @@ const DataTable = (props) => {
                             <td><Link to="/chart" state={{id: meta.symbol}}><button>chart</button></Link></td>
                         </tr>
                       )
-                    }else if(data === undefined){
+                    }else if(item === 429){
                       return(
                         <tr>
-                          <td>{warning}</td>
+                          <td>You have exceed your dayly limit.</td>
                         </tr>
                       )
                     }

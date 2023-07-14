@@ -8,13 +8,14 @@ import CurrentData from './CurrentData/CurrentData'
 
 const Body = () => {
 
-  const [data, dataFunc] = useState()
-  const [Table_rows_data, Table_rows_dataFunc] = useState()
+  const [selectedNav, selectedNavFunc] = useState()
+  const [currentSelcted, currentSelctedFunc] = useState()
+  const [Table_rows_data, Table_rows_dataFunc] = useState(null)
   const time = '30min'
   const period = 14
 
   function currentData(data){
-    dataFunc(data)
+    selectedNavFunc(data)
   }
 
   const Table_header = [
@@ -34,7 +35,7 @@ const Body = () => {
 
 
   async function FetchCurrency(){
-    const URL = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${forex_pair.pair1}%2C%20${forex_pair.pair2}%2C%20${forex_pair.pair3}%2C%20${forex_pair.pair4}%2C%20${forex_pair.pair5}%2C%20${forex_pair.pair6}%2C%20${forex_pair.pair7}&interval=${time}&outputsize=${period}`;
+    const URL = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${forex_pair.pair1}%2C%20${forex_pair.pair2}%2C%20${forex_pair.pair3}%2C%20${forex_pair.pair4}%2C%20${forex_pair.pair5}%2C%20${forex_pair.pair6}%2C%20${forex_pair.pair7}&interval=${time? time : '30min'}&outputsize=1&format=json`;
     const options = {
         method: 'GET',
         headers: {
@@ -49,9 +50,10 @@ const Body = () => {
             
         Table_rows_dataFunc(
             val.map((item) =>{
-                console.log(item)
                 let data = item.values[0]
                 let meta = item.meta
+
+                console.log(data)
                 if(data){
                   return(
                     <tr>
@@ -68,28 +70,38 @@ const Body = () => {
                 else{
                   return(
                     <tr>
-                      <td>{item}</td>
+                      <td>sorry you have exceed the max data delivery try again later</td>
                     </tr>
                   )
                 }
             })
         )
+
+        //current data condition
+        val.map((item) =>{
+          const symbol = item.meta.symbol
+          if(selectedNav === symbol){
+            currentSelctedFunc(item.values)
+            console.log(item.values)
+          }
+        })
     } catch (error) {
         console.error(error);
     }
 }
 
-useEffect(()=>{
-  FetchCurrency()
-},[Table_rows_data])
+// useEffect(()=>{
+//   FetchCurrency()
+// },[Table_rows_data])
 
   return (
     <div className='body'>
+    <button onClick={FetchCurrency}>click</button>
       <Navigation 
         data={currentData}
       />
       <CurrentData 
-        data={data}
+        data={currentSelcted}
       />
       <News />
       <Table 

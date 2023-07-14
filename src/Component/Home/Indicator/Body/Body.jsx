@@ -106,9 +106,9 @@ const Body = () => {
   }
   console.log(time)
 
-  useEffect(()=>{
-    indicator()
-  }, [time])
+  // useEffect(()=>{
+  //   indicator()
+  // }, [time])
 
   return (
     <div className='body-table'>
