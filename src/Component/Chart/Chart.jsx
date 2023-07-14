@@ -64,7 +64,7 @@ const Chart = () => {
 
   return (
     <div className='tradingview-widget-container'>
-      <div id='tradingview_a4e05'  style={{height: "500px"}} />
+      <div id='tradingview_a4e05'  style={{height: "90vh"}} />
       <div className="tradingview-widget-copyright">
       </div>
     </div>
