@@ -21,7 +21,7 @@ const Table = ({Table_rows,Table_header,Table_rows2}) => {
       <table>
         <thead>
             <tr>
-                {th}
+              {th}
             </tr>
         </thead>
         <tbody>
